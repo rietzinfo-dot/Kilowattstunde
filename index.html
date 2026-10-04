@@ -1,0 +1,602 @@
+<meta property="og:type" content="website">
+<meta property="og:title" content="Was bringt eine Kilowattstunde? – Nova|LI">
+<meta property="og:description" content="Börse 12,7 ct, KI-Rechenzentrum 8,86 €: PV, Großspeicher und Micro-Rechenzentrum im ehrlichen Vergleich – mit Quellen, alle Werte selbst einstellbar.">
+<meta property="og:image" content="https://rietzinfo-dot.github.io/Kilowattstunde/vorschau.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://rietzinfo-dot.github.io/Kilowattstunde/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="PV, Großspeicher und KI-Rechenzentrum im ehrlichen Vergleich: Was bringt eine Kilowattstunde? Mit Quellen, alle Werte selbst einstellbar.">
+<title>Was bringt eine Kilowattstunde?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f6f5f1; --paper:#ffffff; --ink:#1f2326; --ink2:#4a4f53; --mute:#7c8186; --rule:#dcd8cf;
+  --anth:#383e42; --pv:#b07d12; --bess:#2f63a3; --dc:#1f8a7c; --red:#b8361c;
+  --pvbg:#f6efe0; --bessbg:#e9eff8; --dcbg:#e4f3f0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#16191b; --paper:#1f2326; --ink:#eceae5; --ink2:#c3c6c8; --mute:#93989c; --rule:#363b3f;
+    --anth:#0f1213; --pv:#e0ab3c; --bess:#6f9ee0; --dc:#4cc2b1; --red:#e0674c;
+    --pvbg:#2b261b; --bessbg:#1d2735; --dcbg:#16302c;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#16191b; --paper:#1f2326; --ink:#eceae5; --ink2:#c3c6c8; --mute:#93989c; --rule:#363b3f;
+  --anth:#0f1213; --pv:#e0ab3c; --bess:#6f9ee0; --dc:#4cc2b1; --red:#e0674c;
+  --pvbg:#2b261b; --bessbg:#1d2735; --dcbg:#16302c;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 'IBM Plex Sans',Arial,sans-serif;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 48px}
+.mono{font-family:'IBM Plex Mono','Courier New',monospace}
+header.top{position:relative;background:#383e42;overflow:hidden;color:#f4f2ee;padding-block:64px 70px;margin-bottom:28px;min-height:380px;display:flex;align-items:center}
+header.top::before{content:"";position:absolute;top:0;bottom:0;right:0;left:calc(max(0px,(100% - 1120px)/2) + 680px);background:linear-gradient(90deg,#383e42 0%,rgba(56,62,66,.6) 12%,rgba(56,62,66,0) 30%),url(deckblatt.jpg) 45% 42%/cover no-repeat}
+header.top .wrap{position:relative;z-index:1;width:100%}
+header.top .lead{max-width:600px;text-align:justify;hyphens:auto}
+header.top h1{max-width:640px}
+header.top .viz{z-index:1;position:absolute;right:16px;bottom:14px;margin:0;padding:8px 14px;border-radius:8px;background:rgba(31,35,38,.78);color:#faf8f4;font-size:12px;text-align:right!important;display:flex;flex-direction:column;gap:2px}header.top .viz b{font-size:15px;letter-spacing:.02em}header.top .viz b::first-letter{color:inherit}
+@media (max-width:820px){header.top{min-height:0;padding-block:40px 56px;flex-direction:column;align-items:stretch}header.top::before{position:relative;display:block;order:2;left:auto;height:220px;margin:24px -0px -56px;background:url(deckblatt.jpg) 55% 45%/cover no-repeat}header.top .viz{bottom:8px}}
+header.top .wrap{padding-block:0}
+.eyebrow{font:500 12px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#e88a73}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.1;margin:.5rem 0 .8rem;text-wrap:balance;font-weight:700}
+.lead{color:#d9d6d0;margin:0}
+h2{font-size:21px;margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--ink2);margin:0 0 16px}
+section{margin-top:36px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+@media (max-width:820px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.card h3{margin:0;font-size:17px}
+.tag{font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:4px;align-self:flex-start}
+.pv .tag{background:var(--pvbg);color:var(--pv)} .bess .tag{background:var(--bessbg);color:var(--bess)} .dc .tag{background:var(--dcbg);color:var(--dc)}
+.pv{border-top:4px solid var(--pv)} .bess{border-top:4px solid var(--bess)} .dc{border-top:4px solid var(--dc)}
+.kwh{font-size:34px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
+.pv .kwh{color:var(--pv)} .bess .kwh{color:var(--bess)} .dc .kwh{color:var(--dc)}
+.kwhl{font-size:13px;color:var(--mute);margin-top:-6px}
+dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:14px}
+dt{color:var(--ink2)} dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+dd.strong{font-weight:700} .neg{color:var(--red)}
+hr.thin{border:0;border-top:1px solid var(--rule);margin:2px 0}
+.note{font-size:12.5px;color:var(--mute)}
+.controls{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 22px}
+@media (max-width:820px){.controls{grid-template-columns:1fr}}
+.ctl h4{margin:0 0 8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.ctl.pv h4{color:var(--pv)} .ctl.bess h4{color:var(--bess)} .ctl.dc h4{color:var(--dc)} .ctl.all h4{color:var(--ink2)}
+.ctl{border:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.row label{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;color:var(--ink2)}
+.row output{font:500 13px/1.4 'IBM Plex Mono',monospace;color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--anth)}
+.ctl.pv input{accent-color:var(--pv)} .ctl.bess input{accent-color:var(--bess)} .ctl.dc input{accent-color:var(--dc)}
+.chk{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--ink2)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{font:500 13px 'IBM Plex Sans',sans-serif;padding:6px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--dc);border-color:var(--dc);color:#fff}
+button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.chartbox{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:14px 10px 6px;overflow-x:auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2);padding:4px 8px 6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:500}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tablebox{background:var(--paper);border:1px solid var(--rule);border-radius:10px;overflow-x:auto}
+.points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.points{grid-template-columns:1fr}}
+.points div{background:#383e42;color:#e9e4dc;border:0;border-top:4px solid #e0674c;border-radius:10px;padding:18px 18px 20px;line-height:1.55}
+.points b{display:block;text-align:left;margin-bottom:8px;color:#e0674c;font-family:'IBM Plex Mono',monospace;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}
+footer{margin-top:36px;font-size:12.5px;color:var(--mute);border-top:1px solid var(--rule);padding-top:14px}
+footer a{color:var(--ink2)}
+.costbtn{margin-top:4px;font:600 13px 'IBM Plex Sans',sans-serif;padding:8px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;display:flex;justify-content:space-between;gap:8px}
+.costbtn span{font-family:'IBM Plex Mono',monospace;font-weight:500}
+.costlist{display:flex;flex-direction:column;gap:6px;border-top:1px dashed var(--rule);padding-top:8px}
+.costlist[hidden]{display:none}
+.ci{display:grid;grid-template-columns:auto 1fr auto;gap:4px 8px;align-items:start;font-size:12.5px}
+.ci input{margin-top:3px}
+.ci .lab{color:var(--ink)} .ci .amt{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;text-align:right}
+.ci .src{grid-column:2/4;font-size:11.5px;color:var(--mute)}
+.ci.info{grid-template-columns:auto 1fr}.ci.info .src{grid-column:2/3}
+.ci.off .lab,.ci.off .amt{color:var(--mute);text-decoration:line-through}
+.badge{font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:2px 5px;border-radius:3px;margin-left:4px;vertical-align:1px;background:var(--bg);border:1px solid var(--rule);color:var(--mute)}
+.badge.q{border-color:var(--dc);color:var(--dc)}
+@media print{.costlist{display:flex!important}.costbtn{display:none}}
+.ladder{display:flex;flex-direction:column;gap:8px}
+.lrow{display:grid;grid-template-columns:minmax(150px,240px) 1fr 92px;gap:10px;align-items:center;font-size:13.5px}
+.lrow .bar{height:18px;border-radius:3px;background:var(--dc);min-width:2px}
+.lrow .bar.grid{background:var(--mute)} .lrow .bar.us{background:var(--red)}
+.lrow .v{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+.lrow small{display:block;color:var(--mute);font-size:11.5px}
+.chartbox #chart{display:block}
+@media (max-width:600px){.chartbox #chart{min-width:700px}.charthint{display:block!important}}
+.tablebox td:not(.num){text-align:left;hyphens:auto}
+.howto{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--anth);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:14.5px;line-height:1.55}
+.howto p{margin:0;text-align:justify;hyphens:auto}.howto .hws{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.howto .hl{color:var(--ink2)}
+.howto .hw{padding:3px 9px;border-radius:6px;font-size:13.5px}.howto .pvc{background:var(--pvbg)}.howto .bc{background:var(--bessbg)}.howto .dcc{background:var(--dcbg)}
+.howto .rtop{margin-top:12px;font-size:14.5px;color:var(--ink)}.rstrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.rstrip .rc{border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}.rstrip small{font-size:12px;color:var(--ink2)}.rstrip b{font-size:22px;font-variant-numeric:tabular-nums}
+@media (max-width:600px){.rstrip{grid-template-columns:1fr}}
+.monkpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 14px}.monkpi div{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:10px 12px}.monkpi small{display:block;font-size:12.5px;color:var(--ink2)}.monkpi b{font-size:22px;font-variant-numeric:tabular-nums}
+@media (max-width:600px){.monkpi{grid-template-columns:1fr}.chartbox #chart2{min-width:700px}}
+.pos{color:var(--dc);font-weight:600}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:28px;background:#383e42;color:#f4f2ee;border:1px solid #383e42;border-radius:12px;padding:24px 28px;margin-top:36px}.contact h2{margin:2px 0 10px;color:#faf8f4}.contact p{margin:0;line-height:1.6;text-align:left!important;hyphens:none}.contact img{width:200px;height:200px;flex:none}.contact a{color:#faf8f4}.contact b{color:#faf8f4}.eyebrow2{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#e0674c!important}
+@media (max-width:600px){.contact{flex-direction:column-reverse;text-align:center}.contact p{text-align:center!important}.contact img{width:150px;height:150px}}
+.fold{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:0 18px}
+.fold>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding:16px 0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary h2{margin:0;display:flex;align-items:center;gap:10px}
+.fold>summary h2::before{content:"▸";color:#e0674c;font-size:18px;transition:transform .2s}
+.fold[open]>summary h2::before{transform:rotate(90deg)}
+.foldhint{font-size:13px;color:var(--mute)}
+.fold[open]{padding-bottom:18px}
+.fold .tablebox{margin-top:4px}
+@media print{.fold{border:0;padding:0}.foldhint{display:none}}
+.negc{color:var(--red);font-weight:600}
+.resetbtn{font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer}
+.resetbtn:hover{border-color:var(--dc)}
+.stack{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:8px 0 10px}
+.stack span{display:block;height:100%}
+.slegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px 16px;font-size:13px}
+.slegend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.slegend b{float:right;font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.two{grid-template-columns:1fr}.lrow{grid-template-columns:1fr 70px;row-gap:8px;padding:10px 0 14px;border-bottom:1px solid var(--rule)}.lrow:last-child{border-bottom:0}.lrow .bar{grid-column:1/-1;order:3;margin-top:0}}
+/* Blocksatz für alle Fließtexte, Überschriften linksbündig */
+.lrow small{text-align:left!important}
+.lead,.sub,p,.note,.ci .src,.points div,.lrow small,footer,td{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+h1,h2,h3,h4,th,.kwh,.kwhl,.tag,.eyebrow,dt,dd,.amt,.v,.legend,.slegend{text-align:left;hyphens:manual}
+dd,.amt,.v{text-align:right}
+@media (prefers-reduced-motion:no-preference){.kwh{transition:color .2s}}
+@media print{
+  body{background:#fff} .controls input,.seg{display:none}
+  section,.card,.chartbox{break-inside:avoid}
+}
+</style>
+
+<header class="top" lang="de"><div class="wrap">
+  <div class="eyebrow">Nova|LI · Ertragsvergleich · Stand 01.10.2026</div>
+  <h1>Was bringt eine Kilowattstunde?</h1>
+  <p class="lead">Drei Wege, Strom und Kapital am selben Standort einzusetzen: einspeisen, speichern und handeln, oder im eigenen Micro-Rechenzentrum zu KI-Rechenleistung veredeln. Gleiches Kapital, ehrliche Annahmen, alle Werte im Rechner anpassbar.</p>
+</div><p class="viz"><b>Nova|LI Green Micro Data Center</b><span>Visualisierung · KI-generiert, nicht maßstabsgetreu</span></p></header>
+
+<main class="wrap" lang="de">
+
+<aside class="howto" aria-label="So ist der Vergleich zu lesen">
+  <p class="ht"><b>So ist dieser Vergleich zu lesen:</b> Jeder Weg bekommt dieselbe Investitionssumme von <b id="hCap">1.369.988 €</b>, die Summe des Nova|LI-Rechenzentrums. Dafür gibt es:</p>
+  <div class="hws"><span class="hw pvc">A · PV-Freifläche mit <b id="hPv">–</b></span>
+  <span class="hw bc">B · Handelsspeicher mit <b id="hB">–</b></span>
+  <span class="hw dcc">C · Micro-Rechenzentrum mit <b id="hD">16 GPUs</b></span></div>
+  <p class="hl">Gerechnet wird ohne Finanzierung, also der reine Ertrag des eingesetzten Geldes – so lassen sich die drei Wege fair vergleichen.</p>
+</aside>
+
+<section id="ergebnis" aria-labelledby="h-erg" style="margin-top:0">
+  <h2 id="h-erg">Das Ergebnis bei gleichem Kapital</h2>
+  <p class="sub">Basis: <b id="capTxt">1.369.988 €</b> Investition je Weg, so viel wie das Nova|LI-Rechenzentrum kostet. <b>Alle Beträge netto</b> (ohne Umsatzsteuer), vor Ertragsteuern; Finanzierung nur, wenn der Schalter „Mit Finanzierung“ an ist. Erlöse und Kosten lassen sich je Weg aufklappen und per Häkchen ein- und ausschalten.</p>
+  <div class="grid3">
+    <article class="card pv">
+      <span class="tag">Weg A · PV-Einspeisung</span>
+      <h3>Freiflächen-PV, Strom ins Netz</h3>
+      <div class="kwh" id="pvKwh">–</div><div class="kwhl">Erlös pro erzeugter kWh (netto)</div>
+      <dl>
+        <dt>Anlagengröße</dt><dd id="pvSize"></dd>
+        <dt>Erzeugung pro Jahr</dt><dd id="pvGen"></dd>
+        <dt>GRW-Zuschuss</dt><dd id="pvGrw"></dd>
+        <dt>Erlös pro Jahr</dt><dd id="pvRev"></dd>
+        <dt>Kosten pro Jahr (gewählt)</dt><dd id="pvOpex"></dd>
+        <dt>Überschuss pro Jahr</dt><dd class="strong" id="pvNet"></dd>
+      </dl>
+      <hr class="thin">
+      <dl><dt>Amortisation</dt><dd class="strong" id="pvPay"></dd><dt>Überschuss nach 10 Jahren</dt><dd class="strong" id="pv10"></dd></dl>
+      <p class="note">Kein GRW: Eine Anlage mit EEG-Vergütung darf nicht doppelt gefördert werden.</p>
+      <button type="button" class="costbtn" id="pvRBtn" aria-expanded="false" aria-controls="pvRList">Erlöse und staatliche Regeln anzeigen <span id="pvRCnt"></span></button>
+      <div class="costlist" id="pvRList" hidden></div>
+      <button type="button" class="costbtn" id="pvBtn" aria-expanded="false" aria-controls="pvList">Kostenposten anzeigen <span id="pvCnt"></span></button>
+      <div class="costlist" id="pvList" hidden></div>
+    </article>
+    <article class="card bess">
+      <span class="tag">Weg B · Großspeicher</span>
+      <h3>Batteriespeicher, Handel und Regelenergie</h3>
+      <div class="kwh" id="bKwh">–</div><div class="kwhl">Erlös pro durchgesetzter kWh (netto)</div>
+      <dl>
+        <dt>Speichergröße (2 h)</dt><dd id="bSize"></dd>
+        <dt>Durchsatz pro Jahr</dt><dd id="bThr"></dd>
+        <dt>GRW-Zuschuss</dt><dd id="bGrw"></dd>
+        <dt>Erlös im 1. Jahr</dt><dd id="bRev"></dd>
+        <dt>Kosten im 1. Jahr (gewählt)</dt><dd id="bOpex"></dd>
+        <dt>Überschuss im 1. Jahr</dt><dd class="strong" id="bNet"></dd>
+      </dl>
+      <hr class="thin">
+      <dl><dt>Amortisation</dt><dd class="strong" id="bPay"></dd><dt>Überschuss nach 10 Jahren</dt><dd class="strong" id="b10"></dd></dl>
+      <p class="note">Netzgekoppelter Handelsspeicher ohne eigene PV: in der Regel nicht GRW-förderfähig.</p>
+      <button type="button" class="costbtn" id="bRBtn" aria-expanded="false" aria-controls="bRList">Erlöse und staatliche Regeln anzeigen <span id="bRCnt"></span></button>
+      <div class="costlist" id="bRList" hidden></div>
+      <button type="button" class="costbtn" id="bBtn" aria-expanded="false" aria-controls="bList">Kostenposten anzeigen <span id="bCnt"></span></button>
+      <div class="costlist" id="bList" hidden></div>
+    </article>
+    <article class="card dc">
+      <span class="tag">Weg C · Nova|LI Micro-DC</span>
+      <h3>Strom wird zu KI-Rechenleistung</h3>
+      <div class="kwh" id="dKwh">–</div><div class="kwhl">Erlös pro verbrauchter kWh (netto)</div>
+      <dl>
+        <dt>Rechenkern</dt><dd id="dCore">16 GPUs · 2 Server</dd>
+        <dt>Stromverbrauch pro Jahr</dt><dd id="dEn"></dd>
+        <dt>GRW-Zuschuss</dt><dd id="dGrw"></dd>
+        <dt id="dRevL">Erlös pro Jahr (Zielbetrieb)</dt><dd id="dRev"></dd>
+        <dt>Kosten pro Jahr (gewählt)</dt><dd id="dOpex"></dd>
+        <dt>Überschuss pro Jahr (Zielbetrieb)</dt><dd class="strong" id="dNet"></dd>
+      </dl>
+      <hr class="thin">
+      <dl><dt>Amortisation</dt><dd class="strong" id="dPay"></dd><dt>Überschuss nach 10 Jahren</dt><dd class="strong" id="d10"></dd></dl>
+      <p class="note" id="dNote">Mit Hochlauf über fünf Jahre wie im Whitepaper.</p>
+      <button type="button" class="costbtn" id="dRBtn" aria-expanded="false" aria-controls="dRList">Erlöse und staatliche Regeln anzeigen <span id="dRCnt"></span></button>
+      <div class="costlist" id="dRList" hidden></div>
+      <button type="button" class="costbtn" id="dBtn" aria-expanded="false" aria-controls="dList">Kostenposten anzeigen <span id="dCnt"></span></button>
+      <div class="costlist" id="dList" hidden></div>
+    </article>
+  </div>
+</section>
+
+
+<section aria-labelledby="h-kwh">
+  <h2 id="h-kwh">Was wird im Rechenzentrum aus einer Kilowattstunde?</h2>
+  <p class="sub">So, wie sich ein Strompreis aus Energie, Netzentgelten und Abgaben zusammensetzt, lässt sich auch der Wert einer Kilowattstunde im Rechenzentrum zerlegen. Grundlage: 1 kWh deckt <b id="gphTxt">≈ 1,15 GPU-Stunden</b> einschließlich Kühlung und Server (Whitepaper: 121.800 kWh pro Jahr für 16 GPUs).</p>
+  <div class="two">
+    <div class="card" style="border-top:4px solid var(--dc)">
+      <h3>Marktpreise: was eine kWh als Produkt wert ist</h3>
+      <p class="note" style="margin:0">Theoretischer Höchstwert, wenn die gesamte Rechenzeit zum Marktpreis verkauft wird. Netto, ohne Umsatzsteuer.</p>
+      <div class="ladder" id="ladder"></div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--dc)">
+      <h3>Woraus sich die <span id="kwhHead">8,86 €</span> zusammensetzen</h3>
+      <p class="note" style="margin:0">Aufteilung des Erlöses je kWh im Zielbetrieb auf die gewählten Kostenposten und den Überschuss.</p>
+      <div class="stack" id="stack" role="img" aria-label="Zusammensetzung des Erlöses pro Kilowattstunde"></div>
+      <div class="slegend" id="slegend"></div>
+      <p class="note" style="margin:6px 0 0">Zum Vergleich je Kunde: Nova|LI plant Ø 75 € im Monat. Microsoft 365 Copilot Business kostet 18,20 € je Nutzer und Monat (Aktion bis 31.12.2026: 15,60 €), Enterprise 26 €. Ein Nova|LI-Kunde entspricht damit etwa 3 bis 4 KI-Arbeitsplätzen, mit Datenverarbeitung in Deutschland.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-chart">
+  <h2 id="h-chart">Kapitalrückfluss über zehn Jahre</h2>
+  <p class="sub" id="chartSub">Kumulierter Überschuss nach Investition und Zuschuss. Der Kreis auf der gestrichelten Linie markiert den Break-even: Ab hier ist das eingesetzte Kapital zurück.</p>
+  <div class="chartbox">
+    <p class="note charthint" style="display:none;margin:0 6px 6px">Grafik seitlich verschiebbar.</p>
+    <svg id="chart" viewBox="0 0 900 340" width="100%" role="img" aria-label="Kumulierter Kapitalrückfluss der drei Wege über zehn Jahre"></svg>
+    <div class="legend"><span><i style="background:var(--pv)"></i>A · PV-Einspeisung</span><span><i style="background:var(--bess)"></i>B · Großspeicher</span><span><i style="background:var(--dc)"></i>C · Micro-DC</span></div>
+  </div>
+</section>
+
+
+<section aria-labelledby="h-ctl">
+  <h2 id="h-ctl">Annahmen anpassen</h2>
+  <p class="sub">Voreingestellt sind die Marktwerte vom September 2026 (Quellen unten). Jeder Regler rechnet sofort neu.</p>
+  <p><button type="button" id="reset" class="resetbtn">↺ Auf Ausgangswerte zurücksetzen</button></p>
+  <form class="controls" id="f" onsubmit="return false">
+    <fieldset class="ctl all"><h4>Allgemein</h4>
+      <div class="row"><label for="cap">Kapital je Weg <output id="capO"></output></label><input id="cap" type="range" min="100000" max="3000000" step="1" value="1369988"></div>
+      <div class="row"><label for="tax">Steuersatz für IAB-Effekt <output id="taxO"></output></label><input id="tax" type="range" min="0" max="45" step="1" value="30"></div>
+      <label class="chk"><input id="iab" type="checkbox" checked> Investitionsabzugsbetrag (§ 7g EStG) einrechnen</label>
+    </fieldset>
+    <fieldset class="ctl pv"><h4>A · PV-Einspeisung</h4>
+      <div class="row"><label for="pvCap">Kosten pro kWp <output id="pvCapO"></output></label><input id="pvCap" type="range" min="600" max="1100" step="10" value="800"></div>
+      <div class="row"><label for="pvYield">Ertrag pro kWp und Jahr <output id="pvYieldO"></output></label><input id="pvYield" type="range" min="850" max="1150" step="10" value="1000"></div>
+      <div class="row"><label for="pvPrice">Börsenerlös (Marktwert Solar, Jahresmittel) <output id="pvPriceO"></output></label><input id="pvPrice" type="range" min="2" max="10" step="0.1" value="4.8"></div>
+    </fieldset>
+    <fieldset class="ctl bess"><h4>B · Großspeicher</h4>
+      <div class="row"><label for="bCap">Kosten pro kWh Kapazität <output id="bCapO"></output></label><input id="bCap" type="range" min="220" max="500" step="5" value="315"></div>
+      <div class="row"><label for="bRevMW">Erlös pro MW und Jahr <output id="bRevMWO"></output></label><input id="bRevMW" type="range" min="70000" max="220000" step="2500" value="140000"></div>
+      <div class="row"><label for="bDecl">Erlösrückgang pro Jahr <output id="bDeclO"></output></label><input id="bDecl" type="range" min="0" max="10" step="0.5" value="3"></div>
+    </fieldset>
+    <fieldset class="ctl dc" style="grid-column:1/-1"><h4>C · Nova|LI Micro-DC</h4>
+      <div class="seg" role="group" aria-label="Geschäftsmodell">
+        <button type="button" id="mSvc" aria-pressed="true">KI-Dienste (Whitepaper)</button>
+        <button type="button" id="mRent" aria-pressed="false">Nur GPU-Vermietung (Rückfall)</button>
+      </div>
+      <div class="controls" style="padding:0;border:0;background:none">
+        <div class="row"><label for="util" id="utilL">Kundenziel erreicht (Zielbetrieb) <output id="utilO"></output></label><input id="util" type="range" min="20" max="100" step="1" value="92"></div>
+        <div class="row"><label for="gpuP">Mietpreis pro GPU-Stunde <output id="gpuPO"></output></label><input id="gpuP" type="range" min="0.6" max="3" step="0.05" value="1.5"></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label class="chk"><input id="grw" type="checkbox" checked> GRW-Zuschuss 451.400 € (beantragt, nicht bewilligt)</label>
+          <label class="chk"><input id="ramp" type="checkbox" checked> Hochlauf über 5 Jahre</label>
+          <label class="chk"><input id="up" type="checkbox"> Upside: schnellerer Hochlauf + Ausbaustufe 2 (+16 GPUs in Jahr 3 aus eigenem Geld)</label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</section>
+
+<section aria-labelledby="h-pts">
+  <h2 id="h-pts">Was die Zahlen sagen</h2>
+  <div class="points">
+    <div><b>Wertschöpfung pro kWh</b>Im Rechenzentrum wird dieselbe Kilowattstunde zu einem Produkt, das um ein Vielfaches mehr wert ist als ihr Börsenpreis. PV und Speicher verkaufen Energie, das Rechenzentrum verkauft, was man mit Energie macht.</div>
+    <div><b>Risiko ist unterschiedlich verteilt</b>PV ist planbar, aber knapp. Der Speicher ist erprobt, seine Erlöse sinken aber, je mehr Speicher ans Netz gehen; die oft genannten fünf Jahre gelten nur für große Parks mit niedrigeren Kosten, an einem kleinen Standort sind es eher neun. Das Rechenzentrum hängt am Verkauf seiner Dienste. Deshalb gibt es die Rückfallebene GPU-Vermietung.</div>
+    <div><b>Kein Entweder-oder</b>Am Standort Wiederstedt sind 2 MW Netzanschluss möglich: 500 kW für das Rechenzentrum, 1,5 MW für einen eigenen Großspeicher. Beide Projekte teilen Standort, Netz und Planung.</div>
+  </div>
+</section>
+
+<section aria-labelledby="h-src">
+  <details class="fold">
+  <summary><h2 id="h-src">Marktwerte und Annahmen</h2><span class="foldhint">Quellen und Ansätze aller Zahlen · aufklappen</span></summary>
+  <div class="tablebox"><table>
+    <thead><tr><th style="width:34%">Größe</th><th style="width:22%">Wert</th><th>Quelle / Hinweis</th></tr></thead>
+    <tbody>
+      <tr><td>Börsenstrompreis (Spot) August 2026</td><td class="num">12,689 ct/kWh</td><td>netztransparenz.de, via pv magazine</td></tr>
+      <tr><td>Marktwert Solar Juli / August 2026</td><td class="num">5,226 / 6,359 ct/kWh</td><td>netztransparenz.de, via pv magazine</td></tr>
+      <tr><td>Zuschlag Freiflächen-PV Juli 2026</td><td class="num">Ø 4,79 ct/kWh</td><td>Bundesnetzagentur, Gebotstermin 01.07.2026</td></tr>
+      <tr><td>PV-Freifläche schlüsselfertig</td><td class="num">700–900 €/kWp</td><td>Branchenwerte 2026; Ansatz 800 €/kWp, Betrieb 1,5 % der Investition</td></tr>
+      <tr><td>Großspeicher-Erlöse (1 MW / 2 MWh)</td><td class="num">132.000–155.000 €/MW/Jahr</td><td>ISEA Battery Revenue Index Q1 2026 bzw. 12-Monats-Mittel; Ansatz 140.000 €</td></tr>
+      <tr><td>Großspeicher schlüsselfertig</td><td class="num">270–420 €/kWh</td><td>Marktübersichten 2026; Ansatz 315 €/kWh + 15 % Nebenkosten, Betrieb/Vermarktung 15 % der Erlöse + 1 % der Investition</td></tr>
+      <tr><td>GPU-Miete RTX PRO 6000 (Cloud)</td><td class="num">1,09–2,40 $/h · Ansatz 1,50 €</td><td>24 Angebote, September 2026 (gpuperhour, flopper.io); Whitepaper 1,90 € lag am oberen Rand</td></tr>
+      <tr><td>Personal Sachsen-Anhalt</td><td class="num">48.000–62.000 € brutto</td><td>Systemadministration bzw. Rechenzentrum (jobvector 2026) + ≈ 21 % Arbeitgeberanteil; Geschäftsführung kleine GmbH 60.000–90.000 €/a</td></tr>
+      <tr><td>Nova|LI Investition / GRW</td><td class="num">1.369.988 € / ~451.400 €</td><td>Whitepaper 01.10.2026, inkl. Baukostenzuschuss 53.250 €, IT-Hardware 319.000 € (Marktbasis 290.000 € + 10 % Preispuffer), Anlaufreserve 55.000 € und Vermittlungsprovision; GRW beantragt am 28.07.2026, Erhöhung mit IB LSA abzustimmen, noch nicht bewilligt</td></tr>
+      <tr><td>Nova|LI Zielumsatz</td><td class="num">1.173.600 €</td><td>Whitepaper, Jahr 5 bei Vollauslastung (1.307 Kunden × Ø 75 €/Monat); Betriebskosten hier eigenständig nach Marktwerten aufgeschlüsselt</td></tr>
+      <tr><td>Nova|LI Stromverbrauch</td><td class="num">121.800 kWh/Jahr</td><td>Whitepaper; PV deckt im Jahresmittel den Bedarf, keine Einspeisung</td></tr>
+      <tr><td>Netzentgelt Mittelspannung MITNETZ 2026</td><td class="num">116,12 €/kW·a + 0,67 ct/kWh</td><td>MITNETZ Preisblatt Netzentgelte Strom ab 01.01.2026 (≥ 2.500 Benutzungsstunden)</td></tr>
+      <tr><td>Umlagen 2026 (KWKG / Offshore / bes. Netznutzung A')</td><td class="num">0,446 / 0,941 / 1,559 ct/kWh</td><td>Übertragungsnetzbetreiber, netztransparenz.de</td></tr>
+      <tr><td>Stromsteuer</td><td class="num">2,05 ct/kWh</td><td>Regelsatz; Rechenzentren zählen nicht zum produzierenden Gewerbe (0,05 ct)</td></tr>
+      <tr><td>Netzentgelte Batteriespeicher</td><td class="num">befreit (20 Jahre)</td><td>§ 118 Abs. 6 EnWG bei Inbetriebnahme bis 04.08.2029; BNetzA hält daran fest (26.05.2026)</td></tr>
+      <tr><td>Baukostenzuschuss Mittelspannung</td><td class="num">≈ 106,5 €/kW</td><td>Eigene Berechnung nach MITNETZ (2 MW ≈ 213.000 €); BGH 2025: auch für Speicher zulässig</td></tr>
+      <tr><td>Betriebskosten PV / Speicher</td><td class="num">13 €/kWp·a / 1,5 % p. a.</td><td>BMWK-Gutachten Stromgestehungskosten (Freifläche bzw. PV-Speicher-Kombination)</td></tr>
+      <tr><td>Wasserentnahmeentgelt Kühlwasser Sachsen-Anhalt</td><td class="num">2 ct/m³</td><td>Landesregelung, unverändert seit 2011</td></tr>
+      <tr><td>Proxmox VE Standard</td><td class="num">550 €/Sockel·a</td><td>Proxmox-Preisliste 2026</td></tr>
+      <tr><td>ISO 27001 (KMU)</td><td class="num">10.000–60.000 € einmalig, ≈ 10.000 €/a</td><td>Kostenübersichten 2026 (u. a. Überwachungsaudits 4.000–7.000 €/a)</td></tr>
+      <tr><td>Solarspitzengesetz</td><td class="num">seit 25.02.2025</td><td>Keine Marktprämie bei negativen Preisen für Neuanlagen; Förderzeitraum wird verlängert (§ 51, § 51a EEG)</td></tr>
+      <tr><td>EEG 2027 (Entwurf)</td><td class="num">Kabinett 29.07.2026</td><td>Ende der festen Einspeisevergütung, Differenzverträge statt Marktprämie; 1. Lesung 24.09.2026, noch nicht beschlossen</td></tr>
+      <tr><td>Erlösmix Großspeicher 2026</td><td class="num">≈ 55 % Regelleistung / 45 % Handel</td><td>ess-news, Modo Energy (FCR, aFRR bzw. Day-Ahead, Intraday)</td></tr>
+      <tr><td>Energieeffizienzgesetz Rechenzentren</td><td class="num">ab 300 kW</td><td>PUE ≤ 1,2 und Abwärmequote für Neuanlagen; Schwelle: nicht redundante Nennanschlussleistung</td></tr>
+      <tr><td>Leistung RTX PRO 6000 Blackwell</td><td class="num">≈ 1.380 Bilder/h; ≈ 3.200 bzw. 8.400 Token/s</td><td>Benchmarks Flux/SDXL FP8 (Spheron, Hardware-Corner) bzw. vLLM 8B / 30B (DatabaseMart); Mehrnutzerbetrieb</td></tr>
+      <tr><td>KI-Preise in Deutschland (IONOS AI Model Hub)</td><td class="num">0,15–0,65 €/Mio. Token; 0,0288 €/Bild</td><td>Mistral Nemo / Small, Llama 3.3 70B; FLUX.1-schnell</td></tr>
+      <tr><td>Microsoft 365 Copilot</td><td class="num">18,20 € / 26 € je Nutzer·Monat</td><td>Business (Aktion 15,60 € bis 31.12.2026) bzw. Enterprise, jährliche Abrechnung</td></tr>
+      <tr><td>Jahresmarktwert Solar 2025</td><td class="num">4,508 ct/kWh</td><td>netztransparenz.de (Übertragungsnetzbetreiber); Monatswerte 2025 zwischen 1,843 (Juni) und 11,511 ct (Januar). Ansatz im Rechner 4,8 ct</td></tr>
+      <tr><td>Stromgestehungskosten Freiflächen-PV, Inbetriebnahme 2026</td><td class="num">6,7–6,9 ct/kWh</td><td>Gutachten Stromgestehungskosten Freiflächenanlagen im Auftrag des Bundeswirtschaftsministeriums; liegt über dem Zuschlagswert 4,79 ct, kleine Parks sind daher knapp</td></tr>
+      <tr><td>Bankfinanzierung PV (EEG/Marktprämie)</td><td class="num">70–85 % Kredit · DSCR ≥ 1,30 · bis 30 J.</td><td>KfW 270: effektiv ab ≈ 3,8 % je nach Bonität und Sicherheiten, Laufzeit bis 30 Jahre, bis 5 Jahre tilgungsfrei; Ansatz 18 Jahre, 4,5 %, DSCR 1,30, max. 75 %</td></tr>
+      <tr><td>Bankfinanzierung Großspeicher</td><td class="num">0–70 % Kredit · DSCR 1,15 (Tolling) bis 2,0 (Handel)</td><td>Capcora/Suena „Bankability by Design“ (07/2026): reiner Handel 0 %, Handel mit Fremdkapital 60 %, 5-Jahres-Tolling 70 %; Laufzeit höchstens ≈ 10 Jahre (Banken), DSCR nach BBDF 2026 (ess-news); Ansatz 8 Jahre, 6,0 %, DSCR 2,0, max. 60 %</td></tr>
+      <tr><td>Eigenkapitalrendite Speicher ohne Kredit</td><td class="num">≈ 15 % bei 550 €/kW Eigenkapital</td><td>Capcora/Suena Fallstudie 2h-Speicher, Inbetriebnahme 2027; der Rechner setzt mit 315 €/kWh + Nebenkosten + Baukostenzuschuss für einen kleinen Standort deutlich höhere Kosten an</td></tr>
+      <tr><td>Investitionsabzugsbetrag</td><td class="num">bis 50 %, max. 200.000 €</td><td>§ 7g EStG; bewegliche Wirtschaftsgüter, Gewinngrenze 200.000 €; Steuerstundung, kein Zuschuss; mit Steuerberater klären</td></tr>
+    </tbody>
+  </table></div>
+  </details>
+</section>
+
+
+<section class="contact" aria-labelledby="h-contact">
+  <div>
+    <p class="eyebrow2">Kontakt</p>
+    <h2 id="h-contact">Fragen zum Vergleich oder zu Nova|LI?</h2>
+    <p><b>Marco Rietz</b> · Nova|LI<br>Hardenbergstraße 31, 06456 Arnstein OT Wiederstedt<br>Tel. <a href="tel:+4915167661204">01516 7661204</a> · <a href="mailto:rietz.info@gmail.com">rietz.info@gmail.com</a></p>
+  </div>
+  <img src="marco.png" alt="Marco Rietz" width="200" height="200">
+</section>
+
+<footer>
+  Modellrechnung zur Orientierung, keine Anlageberatung und kein Renditeversprechen. Werte vor Steuern und ohne Finanzierung, ohne Restwerte. Jeder Kostenposten ist mit „Quelle“ oder „Annahme“ gekennzeichnet und lässt sich per Häkchen ein- und ausschalten. Die Großspeicher-Erlöse schwanken stark nach Monat und Markt. Die Nova|LI-Werte beruhen auf einem Kundenmodell, nicht auf unterschriebenen Verträgen.<br>
+  Marco Rietz · Nova|LI · Hardenbergstraße 31, 06456 Arnstein OT Wiederstedt · Tel. 01516 7661204 · rietz.info@gmail.com
+</footer>
+</main>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(v){return (v<0?'−':'')+Math.round(Math.abs(v)).toLocaleString('de-DE')+' €'};
+  var num=function(v,d){return v.toLocaleString('de-DE',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  var mode='svc', RAMP=[0.12,0.43,0.68,0.92,1], RAMPR=[0.35,0.6,0.8,1,1], RAMPU=[0.20,0.60,0.92,1,1], S2=[0,0,0,0.43,0.80,1,1,1,1,1];
+  /* Kostenposten: type 'a' = jährlich (€), 'o' = einmalig in Jahr y, 'capex' = erhöht Investition je Einheit, 'rate' = jährlicher Prozentsatz auf Erlös */
+  var ITEMS={
+   pv:[
+    {id:'pv_om',on:1,l:'Betrieb, Wartung, Versicherung',f:function(c){return 13*c.kwp},s:'13 €/kWp·a, BMWK-Gutachten Stromgestehungskosten Freiflächen-PV; Branchenspanne 10–25 €/kWp·a',q:1},
+    {id:'pv_dv',on:1,l:'Direktvermarktung',f:function(c){return c.gen*0.0025},s:'0,25 ct/kWh; marktüblich 0,1–0,4 ct/kWh',q:1},
+    {id:'pv_pacht',on:1,l:'Flächenpacht (≈ 1,5 ha je MWp)',f:function(c){return c.kwp/1000*1.5*3000},s:'3.000 €/ha·a; Solarpark-Pachten 2025/26: 2.500–4.500 €/ha·a. Entfällt auf eigener Fläche',q:1},
+    {id:'pv_deg',on:1,l:'Moduldegradation 0,4 % pro Jahr',f:null,s:'Erlös sinkt jährlich um 0,4 %; Spanne 0,15 % (Fraunhofer-Messung) bis 0,5 %',q:1,deg:0.004}
+   ],
+   b:[
+    {id:'b_bkz',on:1,l:'Baukostenzuschuss Netzanschluss (einmalig)',f:null,s:'≈ 106,5 €/kW (MITNETZ Mittelspannung, eigene Berechnung: 2 MW ≈ 213.000 €); BGH 2025: BKZ für Speicher zulässig. Verkleinert den Speicher bei gleichem Kapital',q:1,capexKW:106.5},
+    {id:'b_om',on:1,l:'Betrieb und Wartung',f:function(c){return c.cap*0.015},s:'1,5 % der Investition pro Jahr, BMWK-Gutachten Stromgestehungskosten PV-Speicher; Spanne 0,5–1,5 %',q:1},
+    {id:'b_vm',on:1,l:'Vermarktung / Optimierer',f:null,s:'10 % der Erlöse (Annahme); alternativ Tolling-Festpreis 35–60 €/kW·a',q:0,rate:0.10},
+    {id:'b_vs',on:1,l:'Versicherung',f:function(c){return c.cap*0.004},s:'0,4 % der Investition pro Jahr (Annahme, Angebot einholen)',q:0},
+    {id:'b_pacht',on:1,l:'Flächenpacht (≈ 0,3 ha je MW)',f:function(c){return c.mw*0.3*3000},s:'3.000 €/ha·a wie PV; entfällt auf eigener Fläche',q:0},
+    {id:'b_deg',on:1,l:'Zelldegradation 1,5 % pro Jahr',f:null,s:'LFP: 1–2 % Kapazitätsverlust pro Jahr in den ersten Jahren; mindert die Erlöse',q:1,deg:0.015},
+    {id:'b_ne',on:0,l:'Netzentgelte auf Strombezug',f:function(c){return 0},s:'0 €: Befreiung für 20 Jahre bei Inbetriebnahme bis 04.08.2029 (§ 118 Abs. 6 EnWG, BNetzA 26.05.2026)',q:1}
+   ],
+   d:[
+    {id:'d_pers',on:1,l:'Personal: Geschäftsführung, Technik, Kundenbetreuung',f:function(c){var y=c.y||5, gf=(y<=1?54000:y<=3?70000:90000), staff=c.mode==='svc'?(1+(c.u>0.4?1:0)+(c.u>0.75?1:0)):1; return (gf+staff*65000)*c.k},s:'Geschäftsführung gestaffelt nach Marktwerten kleiner GmbH (Gründungsphase ≈ 50.000–55.000 €, kleine GmbH 60.000–90.000 €/a) plus 1–3 Fachkräfte à ≈ 65.000 € (Systemadministration/Rechenzentrum Sachsen-Anhalt 48.000–62.000 € brutto + ≈ 21 % Arbeitgeberanteil), dritte Stelle ab 75 % Kundenziel',q:1},
+    {id:'d_vt',on:1,l:'Vertrieb und Marketing',f:function(c){return c.mode==='svc'?(15000+25000*c.u)*c.k:5000*c.k},s:'Messen, Werbung, Reisen, Website (Annahme 15.000–40.000 €/a je Kundenzahl)',q:0},
+    {id:'d_net',on:1,l:'Datenanbindung 10 Gbit',f:function(c){return 66000*c.k},s:'5.500 €/Monat: Telekom-Business-Standleitung 10 Gbit 3.000–8.000 €/Monat (Businessplan), Dark Fiber 800–6.000 €/Monat je Entfernung; ländlicher Standort, Angebot ausstehend',q:1},
+    {id:'d_strom',on:1,l:'Netzstrom 54 MWh (Energie, Umlagen, Steuer)',f:function(c){return 54000*c.k*0.20},s:'20,0 ct/kWh: Beschaffung ≈ 14,2 ct (Spot Aug. 12,7 + 1,5 Marge) + Arbeitspreis 0,67 + KWKG 0,446 + Offshore 0,941 + Aufschlag bes. Netznutzung 1,559 + Stromsteuer 2,05 + Konzessionsabgabe 0,11',q:1},
+    {id:'d_lp',on:1,l:'Netzentgelt Leistungspreis (≈ 20 kW Spitze)',f:function(c){return 116.12*20*c.k},s:'116,12 €/kW·a, MITNETZ Preisblatt 2026, Mittelspannung ≥ 2.500 h',q:1},
+    {id:'d_msb',on:1,l:'Messstellenbetrieb (Lastgangzähler)',f:function(c){return 600},s:'Annahme 600 €/a; genauer Preis beim Messstellenbetreiber erfragen',q:0},
+    {id:'d_hws',on:1,l:'Hardware-Support und Ersatzteile',f:function(c){return 319000*c.k*0.08},s:'8 % des Hardwarewerts (319.000 €) pro Jahr (Annahme, Herstellerangebot ausstehend)',q:0},
+    {id:'d_hwr',on:1,l:'Hardware-Erneuerung nach 5 Jahren (einmalig, Jahr 6)',f:null,s:'GPU-Server: üblicher Nutzungshorizont 5 Jahre (steuerlich Nutzungsdauer 1 Jahr möglich, BMF-Schreiben zu Computerhardware vom 26.02.2021); Ersatz in Höhe der IT-Hardware 319.000 €',q:1,once:{y:6,v:319000}},
+    {id:'d_sw',on:1,l:'Virtualisierung (Proxmox Standard, 4 Sockel)',f:function(c){return 550*4*c.k},s:'550 €/Sockel·a, Proxmox-Preisliste 2026',q:1},
+    {id:'d_vs',on:1,l:'Versicherungen (Elektronik, Cyber, Haftpflicht)',f:function(c){return (319000*0.003+2000+1000)*c.k},s:'Elektronik ≈ 3 ‰ der Versicherungssumme, Cyber ab ≈ 170–2.000 €/a, Haftpflicht ≈ 1.000 € (Annahmen)',q:0},
+    {id:'d_iso',on:1,l:'ISO 27001: Einführung (Jahr 1) und Pflege',f:function(c){return 10000},s:'Erstzertifizierung KMU 10.000–60.000 €, Ansatz 25.000 € einmalig; Pflege und Überwachungsaudits ≈ 10.000 €/a',q:1,once:{y:1,v:25000}},
+    {id:'d_inf',on:1,l:'Wartung Kühlung, USV, Löschanlage, EMS',f:function(c){return 190000*0.015*c.k},s:'1,5 % der Infrastruktur-Investition (Shelter, Brunnen, EMS ≈ 190.000 €) (Annahme)',q:0},
+    {id:'d_pvb',on:1,l:'Wartung eigene PV (130 kWp) und Speicher',f:function(c){return (13*130+97500*0.015)*c.k},s:'13 €/kWp·a (BMWK) + 1,5 % der Speicherinvestition',q:1},
+    {id:'d_wasser',on:1,l:'Wasserentnahmeentgelt Kühlwasser',f:function(c){return 21000*0.02*c.k},s:'2 ct/m³ Kühlwasser (Sachsen-Anhalt); ≈ 21.000 m³/a bei 14 kW Abwärme und 5 K Spreizung',q:1},
+    {id:'d_stb',on:1,l:'Steuerberatung, Buchhaltung, Recht',f:function(c){return 6000},s:'6.000 €/a (Annahme)',q:0},
+    {id:'d_pacht',on:0,l:'Grundstückspacht (falls an Gesellschaft verpachtet)',f:function(c){return 2400},s:'Annahme 2.400 €/a; entfällt bei eigenem Grundstück',q:0}
+   ]
+  };
+  var REV={
+   pv:[
+    {id:'r_pv_mw',on:1,fix:1,l:'Börsenerlös (Marktwert Solar)',s:'Verkauf über Direktvermarkter an der Börse. Monatsmarktwert Solar Juli 2026: 5,226 ct, August 2026: 6,359 ct (netztransparenz.de); Jahresmittel niedriger angesetzt, am Regler einstellbar',q:1},
+    {id:'r_pv_mp',on:1,l:'Marktprämie (staatlich, EEG)',s:'Ausgleich bis zum „anzulegenden Wert“ aus der Ausschreibung (Juli 2026 Ø 4,79 ct) in Monaten mit schwachem Marktwert, 20 Jahre. Ansatz +0,7 ct/kWh im Jahresmittel (Annahme)',q:0,ct:0.7},
+    {id:'r_pv_neg',on:1,l:'Ausfall bei negativen Börsenpreisen',s:'Solarspitzengesetz (seit 25.02.2025): keine Marktprämie für Viertelstunden mit negativem Preis, dafür Verlängerung des Förderzeitraums (§ 51a EEG, Faktor 0,5). Ansatz −0,3 ct/kWh (Annahme)',q:0,ct:-0.3},
+    {id:'i_pv_eeg',info:1,l:'Was sich ändern kann',s:'EEG 2027: Kabinettsbeschluss 29.07.2026, 1. Lesung Bundestag 24.09.2026. Geplant: Ende der festen Einspeisevergütung und Umstieg von der Marktprämie auf Differenzverträge (CfD), bei denen Erlöse über einem Referenzwert zurückgezahlt werden. Noch nicht beschlossen.'},
+    {id:'i_pv_grw',info:1,l:'GRW',s:'Nicht möglich: EEG-geförderter Strom darf nicht zusätzlich über GRW gefördert werden (Verbot der Doppelförderung).'}
+   ],
+   b:[
+    {id:'r_b_rl',on:1,l:'Regelleistung (FCR und aFRR)',s:'≈ 55 % der Speichererlöse in Deutschland 2026 (ess-news / Modo). Märkte werden mit jedem neuen Speicher enger',q:1,share:0.55},
+    {id:'r_b_spot',on:1,l:'Stromhandel (Day-Ahead, Intraday)',s:'≈ 45 % der Erlöse: günstig laden, teuer entladen. Beispiel März 2026: Intraday kontinuierlich 13.000 €/MW, Day-Ahead 10.900 €/MW im Monat',q:1,share:0.45},
+    {id:'i_b_ne',info:1,l:'Staatliche Vorteile',s:'Keine Förderung, aber 20 Jahre Befreiung von Netzentgelten auf den Ladestrom bei Inbetriebnahme bis 04.08.2029 (§ 118 Abs. 6 EnWG). Die BNetzA hält daran fest (26.05.2026).'},
+    {id:'i_b_chg',info:1,l:'Was sich ändern kann',s:'Die BNetzA arbeitet an einer neuen Netzentgeltsystematik (AgNes); Speicher, die später ans Netz gehen, könnten Netzentgelte zahlen. Baukostenzuschuss für Speicher ist zulässig (BGH 2025).'}
+   ],
+   d:[
+    {id:'r_d_kmu',on:1,svc:1,l:'KI-Dienste für Unternehmen (≈ 217 Kunden)',s:'Whitepaper: 217 von 1.307 Kunden bei Vollauslastung, Ø 75 € je Kunde und Monat (Preise je Segment noch festzulegen)',q:0,cnt:217},
+    {id:'r_d_coach',on:1,svc:1,l:'Coaching mit KI-Avatar (≈ 545 Klienten)',s:'Whitepaper: 545 Klienten, Ø 75 € je Kunde und Monat',q:0,cnt:545},
+    {id:'r_d_pflege',on:1,svc:1,l:'Telecare für Pflegeeinrichtungen (≈ 545 Plätze)',s:'Whitepaper: 545 Pflegeplätze, Ø 75 € je Kunde und Monat',q:0,cnt:545},
+    {id:'r_d_rent',on:1,fix:1,rent:1,l:'Vermietung von GPU-Rechenzeit',s:'16 GPUs × 8.760 h × Auslastung × Mietpreis; Markt September 2026: 1,09–2,40 $/GPU-h über 24 Angebote (≈ 0,95–2,10 €), Ansatz 1,50 €',q:1},
+    {id:'i_d_grw',info:1,l:'Staatliche Förderung',s:'GRW-Investitionszuschuss ≈ 451.400 € einmalig (≈ 32,9 % der Investition; beantragt 28.07.2026, nicht bewilligt). Der Baukostenzuschuss für 500 kW (53.250 €) ist in der Investition enthalten und mit 40 % gefördert. Keine laufende Förderung der Erlöse. IAB (§ 7g EStG) als Steuerstundung.'},
+    {id:'i_d_iso',info:1,l:'Verkaufsargument ISO 27001',s:'Geplanter ISO-27001-zertifizierter Betrieb: Ein unabhängiger Prüfer bestätigt jährlich Zugriffsrechte, Datensicherung, Notfallpläne und Angriffsschutz. Für Pflegeeinrichtungen (Gesundheitsdaten) und Mittelstand (Lieferketten- und Datenschutzanforderungen) ein Kaufargument, zusammen mit Datenverarbeitung ausschließlich in Deutschland. Kosten sind in den Betriebskosten enthalten.'},
+    {id:'i_d_enefg',info:1,l:'Was gilt und was sich ändern kann',s:'Energieeffizienzgesetz: PUE ≤ 1,2 und 10 % Abwärmenutzung für neue Rechenzentren ab 300 kW nicht redundanter Nennanschlussleistung. Mit 16 GPUs deutlich darunter; zu prüfen, ob die Netzreserve von 500 kW als Nennanschlussleistung zählt.'}
+   ]
+  };
+  var state={};
+  Object.keys(REV).forEach(function(m){REV[m].forEach(function(it){if(!it.info) state[it.id]=!!it.on})});
+  Object.keys(ITEMS).forEach(function(m){ITEMS[m].forEach(function(it){state[it.id]=!!it.on})});
+  function on(id){return state[id]}
+  function val(id){return parseFloat($(id).value)}
+  function payback(cum){ for(var i=1;i<cum.length;i++){ if(cum[i]>=0&&cum[i-1]<0){ return (i-1+(0-cum[i-1])/(cum[i]-cum[i-1])); } if(i===1&&cum[0]>=0) return 0; } return null; }
+  function payTxt(p){ return p===null?'über 10 Jahre':num(p,1)+' Jahre'}
+  function renderList(m,ctx,extra){
+    var box=$(m+'List'), h='', n=0, tot=0;
+    ITEMS[m].forEach(function(it){
+      var amt=''; var a=0;
+      if(it.f){ a=it.f(ctx); amt=eur(-a)+' /J.'; }
+      else if(it.once){ a=it.once.v*(it.id==='d_hwr'?ctx.k||1:1); amt=eur(-a)+' einm.'; }
+      else if(it.rate){ amt=num(it.rate*100)+' % der Erlöse'; }
+      else if(it.deg){ amt='−'+num(it.deg*100,1)+' % p. a.'; }
+      else if(it.capexKW){ amt=eur(-(extra&&extra.bkz||0))+' einm.'; }
+      if(state[it.id]) n++;
+      h+='<label class="ci'+(state[it.id]?'':' off')+'"><input type="checkbox" data-id="'+it.id+'"'+(state[it.id]?' checked':'')+'><span class="lab">'+it.l+(it.q?' <span class="badge q">Quelle</span>':' <span class="badge">Annahme</span>')+'</span><span class="amt">'+amt+'</span><span class="src">'+it.s+'</span></label>';
+    });
+    box.innerHTML=h; $(m+'Cnt').textContent=n+' von '+ITEMS[m].length+' aktiv';
+  }
+  function renderRev(m,amts){
+    var box=$(m+'RList'), h='', n=0, tot=0;
+    REV[m].forEach(function(it){
+      if(it.info){ h+='<div class="ci info"><span>ⓘ</span><span class="lab"><b>'+it.l+'</b></span><span class="src">'+it.s+'</span></div>'; return; }
+      if((it.svc&&mode!=='svc')||(it.rent&&mode!=='rent')) return;
+      tot++; if(state[it.id]) n++;
+      var a=amts[it.id]||'';
+      h+='<label class="ci'+(state[it.id]?'':' off')+'"><input type="checkbox" data-id="'+it.id+'"'+(state[it.id]?' checked':'')+(it.fix?' disabled':'')+'><span class="lab">'+it.l+(it.q?' <span class="badge q">Quelle</span>':' <span class="badge">Annahme</span>')+'</span><span class="amt">'+a+'</span><span class="src">'+it.s+'</span></label>';
+    });
+    box.innerHTML=h; $(m+'RCnt').textContent=n+' von '+tot+' aktiv';
+  }
+  function annual(m,ctx){ var t=0; ITEMS[m].forEach(function(it){ if(on(it.id)&&it.f) t+=it.f(ctx); }); return t; }
+  function calc(){
+    var cap=val('cap'), tax=val('tax')/100, useIab=$('iab').checked;
+    var iab=function(b){return useIab?Math.min(0.5*b,200000)*tax:0};
+    $('capO').textContent=eur(cap); $('hCap').textContent=eur(cap); $('capTxt').textContent=eur(cap); $('taxO').textContent=num(tax*100)+' %';
+    // A PV
+    var pvc=val('pvCap'), py=val('pvYield'), pp=val('pvPrice')/100;
+    $('pvCapO').textContent=num(pvc)+' €'; $('pvYieldO').textContent=num(py)+' kWh'; $('pvPriceO').textContent=num(pp*100,1)+' ct';
+    var kwp=cap/pvc, gen=kwp*py, ctxP={kwp:kwp,gen:gen,cap:cap}, deg=on('pv_deg')?0.004:0;
+    var ppEff=pp+(on('r_pv_mp')?0.007:0)+(on('r_pv_neg')?-0.003:0); var pvRev=gen*ppEff, pvOp=annual('pv',ctxP), pvC=[-cap+iab(cap)], pvR=[0];
+    for(var y=1;y<=10;y++){ var f=Math.pow(1-deg,y-1); pvR.push(pvRev*f); pvC.push(pvC[y-1]+pvRev*f-(pvOp-(on('pv_dv')?gen*0.0025*(1-f):0))); }
+    var pvCF=function(y){ var f=Math.pow(1-deg,y-1); return gen*f*(ppEff-(y>20&&on('r_pv_mp')?0.007:0))-(pvOp-(on('pv_dv')?gen*0.0025*(1-f):0)); };
+    $('pvKwh').textContent=num(ppEff*100,1)+' ct'; renderRev('pv',{r_pv_mw:'+'+num(pp*100,1)+' ct → '+eur(gen*pp),r_pv_mp:'+0,7 ct → '+eur(gen*0.007),r_pv_neg:'−0,3 ct → '+eur(-gen*0.003)}); $('pvSize').textContent=num(kwp/1000,2)+' MWp'; $('hPv').textContent=num(kwp/1000,2)+' MWp'; $('pvGen').textContent=num(gen/1000)+' MWh';
+    $('pvGrw').textContent='0 €'; $('pvRev').textContent=eur(pvRev); $('pvOpex').textContent=eur(-pvOp); $('pvNet').textContent=eur(pvRev-pvOp);
+    $('pvPay').textContent=payTxt(payback(pvC)); $('pv10').textContent=eur(pvC[10]);
+    renderList('pv',ctxP);
+    // B BESS
+    var bc=val('bCap'), brm=val('bRevMW'), bd=val('bDecl')/100;
+    $('bCapO').textContent=num(bc)+' €'; $('bRevMWO').textContent=eur(brm); $('bDeclO').textContent=num(bd*100,1)+' %';
+    var perMW=2000*bc*1.15+(on('b_bkz')?106500:0), mw=cap/perMW, mwh=mw*2, thr=mwh*1.5*365, bkz=on('b_bkz')?mw*106500:0;
+    var ctxB={cap:cap,mw:mw}, vm=on('b_vm')?0.10:0, bdeg=on('b_deg')?0.015:0, bFix=annual('b',ctxB);
+    var bShare=(on('r_b_rl')?0.55:0)+(on('r_b_spot')?0.45:0); var bRev1=mw*brm*bShare, bC=[-cap+iab(cap-bkz)], bR=[0];
+    for(var y2=1;y2<=10;y2++){ var r=bRev1*Math.pow(1-bd,y2-1)*Math.pow(1-bdeg,y2-1); bR.push(r); bC.push(bC[y2-1]+r-r*vm-bFix); }
+    var bOp1=bRev1*vm+bFix, bCF=function(y){ var r=bRev1*Math.pow(1-bd,y-1)*Math.pow(1-bdeg,y-1); return r-r*vm-bFix; };
+    $('bKwh').textContent=num(bRev1/(thr*1000)*100,1)+' ct'; $('bSize').textContent=num(mw,2)+' MW / '+num(mwh,2)+' MWh'; $('hB').textContent=num(mw,2)+' MW / '+num(mwh,2)+' MWh'; $('bThr').textContent=num(thr)+' MWh';
+    $('bGrw').textContent='0 €'; $('bRev').textContent=eur(bRev1); $('bOpex').textContent=eur(-bOp1); $('bNet').textContent=eur(bRev1-bOp1);
+    $('bPay').textContent=payTxt(payback(bC)); $('b10').textContent=eur(bC[10]);
+    renderList('b',ctxB,{bkz:bkz}); renderRev('b',{r_b_rl:eur(mw*brm*0.55)+' /J.',r_b_spot:eur(mw*brm*0.45)+' /J.'});
+    // C DC
+    var k=cap/1369988, u=val('util')/100, gp=val('gpuP'), grw=$('grw').checked?451400*k:0, ramp=$('ramp').checked, up=$('up').checked;
+    $('utilO').textContent=num(u*100)+' %'; $('utilL').firstChild.nodeValue=(mode==='svc'?'Kundenziel erreicht (Zielbetrieb) ':'Auslastung der GPUs '); $('gpuPO').textContent=num(gp,2)+' €';
+    var energy=121800*k;
+    var segOn=(on('r_d_kmu')?217:0)+(on('r_d_coach')?545:0)+(on('r_d_pflege')?545:0);
+    function rev(uu){ return mode==='svc'?1173600*k*uu*segOn/1307:16*k*8760*uu*gp; }
+    function ctxD(uu,yy){ return {k:k,u:uu,mode:mode,y:yy}; }
+    function stage2(s){ return s>0?(((s>0.3?1:0)+(s>0.7?1:0))*65000+13722+319000*0.08+2200)*k:0; }
+    var dC=[-(cap-grw)+iab(cap-grw)], dR=[0];
+    for(var y3=1;y3<=10;y3++){
+      var uu=u; if(ramp) uu=Math.min(u,(mode==='svc'?(up?RAMPU:RAMP):RAMPR)[Math.min(y3,5)-1]);
+      var o=annual('d',ctxD(uu,y3)), r=rev(uu);
+      if(on('d_iso')&&y3===1) o+=25000;
+      if(on('d_hwr')&&y3===6) o+=319000*k;
+      if(up){ var s2=ramp?Math.min(u,S2[y3-1]):(y3>=4?u:0); r+=rev(s2); o+=stage2(s2);
+        if(y3===3) o+=359000*k; if(on('d_hwr')&&y3===8) o+=319000*k; }
+      dR.push(r); dC.push(dC[y3-1]+r-o);
+    }
+    var dRev=rev(u)*(up?2:1), dOp=annual('d',ctxD(u,5))+(up?stage2(u):0);
+    if(up) energy*=2;
+    $('dCore').textContent=up?'32 GPUs · 4 Server (Stufe 1 + 2)':'16 GPUs · 2 Server'; $('hD').textContent=up?'16 GPUs, Ausbaustufe 2 (+16) aus eigenem Geld':'16 GPUs';
+    $('dKwh').textContent=num(dRev/energy,2)+' €'; $('dEn').textContent=num(energy)+' kWh';
+    $('dGrw').textContent=eur(grw); $('dRev').textContent=eur(dRev); $('dOpex').textContent=eur(-dOp); $('dNet').textContent=eur(dRev-dOp);
+    $('dPay').textContent=payTxt(payback(dC)); $('d10').textContent=eur(dC[10]);
+    $('dNote').textContent=(mode==='svc'?'KI-Dienste für Betriebe, Coaching und Pflege':'Nur Vermietung von Rechenzeit, schlanker Betrieb')+(ramp?'; Hochlauf eingerechnet.':'; ohne Hochlauf.')+(up?' UPSIDE: schnellerer Hochlauf, Ausbaustufe 2 (≈ 359.000 €) in Jahr 3 aus eigenem Geld, zweiter Kundenstamm ab Jahr 4, Zielbetrieb-Werte für 32 GPUs.':'')+(on('d_hwr')?' Hardware-Erneuerung in Jahr 6'+(up?' und 8':'')+'.':'');
+    renderList('d',{k:k,u:u,mode:mode,y:5}); var segE=function(c){return eur(1173600*k*u*c/1307)+' /J.'}; renderRev('d',{r_d_kmu:segE(217),r_d_coach:segE(545),r_d_pflege:segE(545),r_d_rent:eur(16*k*8760*u*gp)+' /J.'});
+    // kWh-Werte im Rechenzentrum
+    var gph=1/0.869, sp=0.12689;
+    var lad=[
+      {l:'Strom an der Börse',d:'Spotpreis August 2026, 12,689 ct',v:sp,c:'grid'},
+      {l:'Rechenzeit vermieten',d:'GPU-Miete '+num(gp,2)+' €/h × '+num(gph,2)+' GPU-h',v:gph*gp},
+      {l:'Text-KI, kleines Modell (8B)',d:'≈ 3.200 Token/s × 0,15 €/Mio. Token (IONOS)',v:gph*3196*3600/1e6*0.15},
+      {l:'Text-KI, mittleres Modell (≈ 24–30B)',d:'≈ 8.400 Token/s × 0,30 €/Mio. Token (IONOS Mistral Small)',v:gph*8425*3600/1e6*0.30},
+      {l:'Nova|LI-Dienste (Plan)',d:'Zielumsatz ÷ Stromverbrauch',v:dRev/energy,c:'us'},
+      {l:'KI-Bilder',d:'≈ 1.380 Bilder/h × 0,0288 € (IONOS FLUX.1-schnell)',v:gph*1380*0.0288}
+    ];
+    var lmax=Math.max.apply(null,lad.map(function(o){return o.v}));
+    $('ladder').innerHTML=lad.map(function(o){return '<div class="lrow"><div>'+o.l+'<small>'+o.d+'</small></div><div class="bar'+(o.c?' '+o.c:'')+'" style="width:'+Math.max(0.5,o.v/lmax*100)+'%"></div><div class="v">'+(o.v<1?num(o.v*100,1)+' ct':num(o.v,2)+' €')+'</div></div>'}).join('');
+    $('gphTxt').textContent='≈ '+num(gph,2)+' GPU-Stunden';
+    var perK=dRev/energy; $('kwhHead').textContent=num(perK,2)+' €';
+    var groups=[['Personal, Vertrieb, Marketing',['d_pers','d_vt'],'#7c8a96'],['Datenanbindung',['d_net'],'#9aa6b0'],['Strom und Netzentgelte',['d_strom','d_lp','d_msb'],'#b8361c'],['Hardware-Support, Software, Versicherung',['d_hws','d_sw','d_vs'],'#c98a1b'],['Wartung, Wasser, Verwaltung, Sicherheit',['d_iso','d_inf','d_pvb','d_wasser','d_stb','d_pacht'],'#5f6f7a']];
+    var cx=ctxD(u,5), parts=groups.map(function(g){var t=0; ITEMS.d.forEach(function(it){ if(g[1].indexOf(it.id)>=0&&on(it.id)&&it.f) t+=it.f(cx); }); return [g[0],t/energy,g[2]];});
+    var used2=parts.reduce(function(a,p){return a+p[1]},0); parts.push(['Überschuss',Math.max(0,perK-used2),col2('--dc')]);
+    var totS=parts.reduce(function(a,p){return a+p[1]},0)||1;
+    $('stack').innerHTML=parts.map(function(p){return '<span title="'+p[0]+'" style="width:'+(p[1]/totS*100)+'%;background:'+p[2]+'"></span>'}).join('');
+    $('slegend').innerHTML=parts.map(function(p){return '<div><i style="background:'+p[2]+'"></i>'+p[0]+'<b>'+num(p[1],2)+' €</b></div>'}).join('');
+    [['pv10',pvC[10]],['b10',bC[10]],['d10',dC[10]],['pvNet',pvRev-pvOp],['bNet',bRev1-bOp1],['dNet',dRev-dOp]].forEach(function(p){$(p[0]).classList.toggle('neg',p[1]<0)});
+    draw([pvC,bC,dC],[payback(pvC),payback(bC),payback(dC)]);
+  }
+  function draw(series,pays){
+    var svg=$('chart'),W=900,H=340,L=78,R=20,T=16,B=36;
+    var all=[].concat.apply([],series), mn=Math.min.apply(null,all), mx=Math.max.apply(null,all);
+    var step=nice((mx-mn)/5); mn=Math.floor(mn/step)*step; mx=Math.ceil(mx/step)*step; if(mx<=0) mx=step;
+    var x=function(i){return L+i*(W-L-R)/10}, y=function(v){return T+(mx-v)*(H-T-B)/(mx-mn)};
+    var cs=getComputedStyle(document.documentElement), col=function(n){return cs.getPropertyValue(n).trim()};
+    var s='';
+    for(var v=mn;v<=mx+1;v+=step){ s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+col('--rule')+'" stroke-width="1"/>'; s+='<text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11" fill="'+col('--mute')+'">'+short(v)+'</text>'; }
+    for(var i=0;i<=10;i++) s+='<text x="'+x(i)+'" y="'+(H-12)+'" text-anchor="middle" font-size="11" fill="'+col('--mute')+'">'+(i===0?'Start':'J'+i)+'</text>';
+    var cols=[col('--pv'),col('--bess'),col('--dc')], y0=y(0);
+    s+='<rect x="'+L+'" y="'+y0+'" width="'+(W-L-R)+'" height="'+Math.max(0,H-B-y0)+'" fill="'+col('--red')+'" opacity="0.06"/>';
+    s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y0+'" y2="'+y0+'" stroke="'+col('--ink')+'" stroke-width="2" stroke-dasharray="6 4"/>';
+    s+='<text x="'+(L+8)+'" y="'+(y0-8)+'" font-size="12" font-weight="600" fill="'+col('--ink')+'">'+(false?'Eigenkapital zurück':'Break-even (Kapital zurück)')+'</text>';
+    s+='<text x="'+(L+8)+'" y="'+(y0+16)+'" font-size="11" fill="'+col('--red')+'">'+(false?'Eigenkapital noch nicht zurück':'Kapital noch nicht zurück')+'</text>';
+    series.forEach(function(sr,k){ var d=sr.map(function(v,i){return (i?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1)}).join(''); s+='<path d="'+d+'" fill="none" stroke="'+cols[k]+'" stroke-width="3" stroke-linejoin="round"/>'; s+='<circle cx="'+x(10)+'" cy="'+y(sr[10])+'" r="4.5" fill="'+cols[k]+'"/>'; });
+    var used=[];
+    pays.forEach(function(p,k){ if(p===undefined) return; if(p===null){ s+='<text x="'+(W-R-4)+'" y="'+(y(series[k][10])+18)+'" text-anchor="end" font-size="11" font-weight="600" fill="'+cols[k]+'">Break-even erst nach Jahr 10</text>'; return;}
+      var px=x(p), lab='Break-even '+String(Math.round(p*10)/10).replace('.',',')+' J.', ly=y0-26, t=0;
+      while(used.some(function(u){return Math.abs(u[0]-px)<130&&Math.abs(u[1]-ly)<16})&&t<4){ly-=18;t++;} used.push([px,ly]);
+      s+='<line x1="'+px+'" x2="'+px+'" y1="'+y0+'" y2="'+(ly+4)+'" stroke="'+cols[k]+'" stroke-width="1.5"/>';
+      s+='<circle cx="'+px+'" cy="'+y0+'" r="7" fill="'+col('--paper')+'" stroke="'+cols[k]+'" stroke-width="3"/>';
+      s+='<text x="'+px+'" y="'+ly+'" text-anchor="middle" font-size="12" font-weight="600" fill="'+cols[k]+'">'+lab+'</text>'; });
+    svg.innerHTML=s;
+  }
+  function col2(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function nice(r){ var e=Math.pow(10,Math.floor(Math.log10(r))), f=r/e; return (f<1.5?1:f<3?2:f<7?5:10)*e; }
+  function short(v){ var a=Math.abs(v); var t=a>=1e6?num(a/1e6,1)+' Mio':num(a/1e3)+' T'; return (v<0?'−':'')+t+' €'; }
+  ['cap','tax','iab','pvCap','pvYield','pvPrice','bCap','bRevMW','bDecl','util','gpuP','grw','ramp','up'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
+  ['pv','b','d'].forEach(function(m){
+    $(m+'RBtn').addEventListener('click',function(){ var open=$(m+'RList').hidden; $(m+'RList').hidden=!open; this.setAttribute('aria-expanded',String(open)); this.firstChild.nodeValue=open?'Erlöse und staatliche Regeln ausblenden ':'Erlöse und staatliche Regeln anzeigen '; });
+    $(m+'RList').addEventListener('change',function(e){ var id=e.target.getAttribute('data-id'); if(id){ state[id]=e.target.checked; calc(); } });
+    $(m+'Btn').addEventListener('click',function(){ var open=$(m+'List').hidden; $(m+'List').hidden=!open; this.setAttribute('aria-expanded',String(open)); this.firstChild.nodeValue=open?'Kostenposten ausblenden ':'Kostenposten anzeigen '; });
+    $(m+'List').addEventListener('change',function(e){ var id=e.target.getAttribute('data-id'); if(id){ state[id]=e.target.checked; calc(); } });
+  });
+  $('mSvc').addEventListener('click',function(){mode='svc';$('mSvc').setAttribute('aria-pressed','true');$('mRent').setAttribute('aria-pressed','false');$('util').value=92;calc()});
+  $('mRent').addEventListener('click',function(){mode='rent';$('mRent').setAttribute('aria-pressed','true');$('mSvc').setAttribute('aria-pressed','false');$('util').value=75;calc()});
+  window.addEventListener('beforeprint',function(){ document.querySelectorAll('details.fold').forEach(function(d){d.open=true}); });
+  var init={}; Array.prototype.forEach.call(document.querySelectorAll('#f input'),function(el){init[el.id]=el.type==='checkbox'?el.checked:el.value});
+  var initState=JSON.parse(JSON.stringify(state));
+  $('reset').addEventListener('click',function(){
+    Object.keys(init).forEach(function(id){ var el=$(id); if(el.type==='checkbox') el.checked=init[id]; else el.value=init[id]; });
+    Object.keys(initState).forEach(function(id){ state[id]=initState[id]; });
+    mode='svc'; $('mSvc').setAttribute('aria-pressed','true'); $('mRent').setAttribute('aria-pressed','false'); calc();
+  });
+  try{ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',calc); new MutationObserver(calc).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']}); }catch(e){}
+  calc();
+})();
+</script>
